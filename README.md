@@ -10,7 +10,15 @@ Install the package from pypi
 pip install django-cloudflare-restrictor
 ```
 
-Add to `MIDDLEWARE` in your settings file
+Add to `INSTALLED APPS` in your settings file 
+
+```
+INSTALLED_APPS = [
+    'django_cloudflare_restrictor',
+    ...
+```
+
+And add to `MIDDLEWARE` in your settings file
 
 ```
 MIDDLEWARE = [
@@ -18,7 +26,8 @@ MIDDLEWARE = [
     ...
  ]
 ```
-Set the additional settings
+
+Set the additional settings as desired
 
 ```
 CLOUDFLARE_RESTRICTOR_ENABLED = True
@@ -31,3 +40,4 @@ If you want to confirm that the IP blocks stored in the django-cloudflare-restri
 python manage.py check_cloudflare_ips
 ```
 
+Based on historical evidence, it appears that Cloudflare gives around 1 month's advance notice of IP address changes, by publishing the new addresses in advance on their site. Updates to these lists are very infrequent (approx once per every 2 years)
